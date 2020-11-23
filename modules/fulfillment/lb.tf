@@ -37,10 +37,9 @@ resource "google_compute_url_map" "default" {
         }
       }
     }
-    default_route_action {
-      url_rewrite {
-        path_prefix_rewrite = "/"
-      }
+    default_url_redirect {
+      path_redirect = "/"
+      redirect_response_code = "FOUND"
     }
   }
 }
