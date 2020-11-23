@@ -40,6 +40,7 @@ resource "google_compute_url_map" "default" {
     default_url_redirect {
       path_redirect = "/"
       redirect_response_code = "FOUND"
+      strip_query = true
     }
   }
 }
