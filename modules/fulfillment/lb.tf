@@ -18,22 +18,12 @@ resource "google_compute_global_forwarding_rule" "https" {
 
 resource "google_compute_url_map" "default" {
   name            = "${var.service_name}-url-map"
-  default_url_redirect {
-    path_redirect = "/"
-    redirect_response_code = "FOUND"
-    strip_query = true
-  }
   host_rule {
     hosts        = ["*"]
     path_matcher = "default"
   }
   path_matcher {
     name         = "default"
-    default_url_redirect {
-      path_redirect = "/"
-      redirect_response_code = "FOUND"
-      strip_query = true
-    }
     route_rules {
       priority = 1
       service = google_compute_backend_service.default.id
@@ -45,6 +35,16 @@ resource "google_compute_url_map" "default" {
         }
       }
     }
+    default_url_redirect {
+      path_redirect = "/"
+      redirect_response_code = "FOUND"
+      strip_query = true
+    }
+  }
+  default_url_redirect {
+    path_redirect = "/"
+    redirect_response_code = "FOUND"
+    strip_query = true
   }
 }
 
