@@ -25,7 +25,6 @@ resource "google_compute_url_map" "default" {
   }
   path_matcher {
     name         = "default"
-    default_service = google_compute_backend_service.default.id
     route_rules {
       priority = 1
       service = google_compute_backend_service.default.id
@@ -37,10 +36,10 @@ resource "google_compute_url_map" "default" {
         }
       }
     }
-    default_route_action {
-      url_rewrite {
-        path_prefix_rewrite = "/"
-      }
+    default_url_redirect {
+      path_redirect = "/"
+      redirect_response_code = "FOUND"
+      strip_query = true
     }
   }
 }
