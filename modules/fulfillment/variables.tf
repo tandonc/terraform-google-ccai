@@ -24,6 +24,10 @@ variable "port" {
   default = 5000
 }
 
+variable "domains" {
+  type = list(string)
+}
+
 variable "gcr_hostname" {
   type = string
   default = "us.gcr.io"
