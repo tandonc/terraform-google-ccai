@@ -52,13 +52,3 @@ variable "trigger_description" {
   type = string
   default = "Build and deploy fulfillment-controller to Cloud Run"
 }
-
-variable "log" {
-  type = bool
-  default = true
-}
-
-variable "sample_rate" {
-  type = number
-  default = 1.0
-}

@@ -83,9 +83,4 @@ resource "google_compute_backend_service" "default" {
       group = backend.value.id
     }
   }
-
-  log_config {
-    enable      = var.log
-    sample_rate = var.sample_rate
-  }
 }
