@@ -25,7 +25,6 @@ resource "google_compute_url_map" "default" {
   }
   path_matcher {
     name         = "default"
-    default_service = google_compute_backend_service.default.id
     route_rules {
       priority = 1
       service = google_compute_backend_service.default.id
