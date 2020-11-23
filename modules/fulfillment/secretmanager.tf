@@ -25,7 +25,7 @@ resource "google_secret_manager_secret_version" "flask_session_key_v1" {
 FC_BASIC_AUTH_PASS
 ******************************************/
 resource "random_password" "FC_BASIC_AUTH_PASS" {
-  length = 64
+  length = 20
   special = true
   keepers = {
     "version" = 1
@@ -48,8 +48,8 @@ resource "google_secret_manager_secret_version" "basic_auth_pass_v1" {
 FC_CLIENT_API_KEY
 ******************************************/
 resource "random_password" "FC_CLIENT_API_KEY" {
-  length = 64
-  special = true
+  length = 128
+  special = false
   keepers = {
     "version" = 1
   }
