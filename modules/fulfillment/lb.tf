@@ -18,22 +18,14 @@ resource "google_compute_global_forwarding_rule" "https" {
 
 resource "google_compute_url_map" "default" {
   name            = "${var.service_name}-url-map"
-  default_url_redirect {
-    path_redirect = "/"
-    redirect_response_code = "FOUND"
-    strip_query = true
-  }
+  default_service = google_compute_backend_service.default.id
   host_rule {
     hosts        = ["*"]
     path_matcher = "default"
   }
   path_matcher {
     name         = "default"
-    default_url_redirect {
-      path_redirect = "/"
-      redirect_response_code = "FOUND"
-      strip_query = true
-    }
+    default_service = google_compute_backend_service.default.id
     route_rules {
       priority = 1
       service = google_compute_backend_service.default.id
@@ -43,6 +35,11 @@ resource "google_compute_url_map" "default" {
           header_name = "df_auth"
           exact_match = "password"
         }
+      }
+    }
+    default_route_action {
+      url_rewrite {
+        path_prefix_rewrite = "/"
       }
     }
   }
