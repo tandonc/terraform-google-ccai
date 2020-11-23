@@ -24,6 +24,10 @@ variable "port" {
   default = 5000
 }
 
+variable "domains" {
+  type = list(string)
+}
+
 variable "gcr_hostname" {
   type = string
   default = "us.gcr.io"
@@ -47,4 +51,14 @@ variable "github_branch" {
 variable "trigger_description" {
   type = string
   default = "Build and deploy fulfillment-controller to Cloud Run"
+}
+
+variable "log" {
+  type = bool
+  default = true
+}
+
+variable "sample_rate" {
+  type = number
+  default = 1.0
 }
