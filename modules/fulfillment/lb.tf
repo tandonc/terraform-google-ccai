@@ -20,6 +20,7 @@ resource "google_compute_url_map" "default" {
   name            = "${var.service_name}-url-map"
   default_url_redirect {
     path_redirect = "/"
+    redirect_response_code = "FOUND"
     strip_query = true
   }
   host_rule {
@@ -30,6 +31,7 @@ resource "google_compute_url_map" "default" {
     name         = "default"
     default_url_redirect {
       path_redirect = "/"
+      redirect_response_code = "FOUND"
       strip_query = true
     }
     route_rules {
