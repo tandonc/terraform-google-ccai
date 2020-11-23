@@ -28,6 +28,10 @@ resource "google_compute_url_map" "default" {
   }
   path_matcher {
     name         = "default"
+    default_url_redirect {
+      path_redirect = "/"
+      strip_query = true
+    }
     route_rules {
       priority = 1
       service = google_compute_backend_service.default.id
