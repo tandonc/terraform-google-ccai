@@ -37,7 +37,7 @@ resource "google_compute_url_map" "default" {
       }
     }
     default_url_redirect {
-      path_redirect = "/"
+      host_redirect = "example.com"
       redirect_response_code = "FOUND"
       strip_query = true
     }
