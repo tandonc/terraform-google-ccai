@@ -17,7 +17,7 @@ resource "google_cloudbuild_trigger" "github" {
   substitutions = {
     _APP_ENV         = var.env
     _SERVICE_NAME    = var.service_name
-    _SERVICE_ACCOUNT = var.service_name
+    _SERVICE_ACCOUNT = var.service_account_email
     _DEPLOY_REGIONS  = join(",", var.regions)
     _EXPOSE_PORT     = var.port
     _GCR_HOSTNAME    = var.gcr_hostname
