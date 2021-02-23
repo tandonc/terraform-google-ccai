@@ -1,4 +1,4 @@
-# PoC Project Title
+PoC Project Title
 
 A short description of your PoC project.
 
@@ -66,7 +66,4 @@ Please follow our [contributing guidelines].
 
 
 [contributing guidelines]: ./CONTRIBUTING.md
-
-
-
 
